@@ -6,6 +6,7 @@
 }
 body {
   background: #212121;
+  overflow-x: hidden;
 }
 header {
   position: fixed;
@@ -57,7 +58,11 @@ header.sticky ul li a {
   color: #212121;
 }
 header.sticky .logo {
-  filter: brightness(-50%);
+  filter: brightness(-10%);
+}
+header.sticky .menu-toggle {
+  color: #212121;
+  filter: brightness(-10%);
 }
 footer {
   background: #212121;
@@ -79,4 +84,76 @@ footer {
   right: 15%;
   color: #fff;
   padding: 20px;
+}
+/* hamburger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -5px;
+  top: -3px;
+  opacity: 0;
+  z-index: 2;
+}
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 3px;
+  transition: all 0, 5s;
+}
+/* hamburger animation */
+.menu-toggle span :nth-child(2) {
+  transform-origin: 0 0;
+}
+.menu-toggle span :nth-child(4) {
+  transform-origin: 0 100%;
+}
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg);
+}
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+/* resvonsive tablet */
+@media screen and (max-width: 768px) {
+  header ul {
+    width: 200px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .menu-toggle {
+    display: flex;
+  }
+  header ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 50%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    z-index: -1;
+    background-color: #212121;
+    transform: translateX(100%);
+    transition: all 0, 8s;
+    opacity: 0;
+  }
+  header ul.slide {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
