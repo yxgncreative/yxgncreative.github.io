@@ -58,11 +58,11 @@ header.sticky ul li a {
   color: #212121;
 }
 header.sticky .logo {
-  filter: brightness(-10%);
+  filter: brightness(-50%);
 }
 header.sticky .menu-toggle {
   color: #212121;
-  filter: brightness(-10%);
+  filter: brightness(-50%);
 }
 footer {
   background: #212121;
@@ -80,8 +80,8 @@ footer {
 }
 .banner-text {
   position: absolute;
-  top: 40%;
-  right: 15%;
+  top: 50%;
+  right: 20%;
   color: #fff;
   padding: 20px;
 }
@@ -108,20 +108,16 @@ footer {
   height: 3px;
   background-color: #fff;
   border-radius: 3px;
-  transition: all 0, 5s;
+  transition: all 0.8s;
 }
 /* hamburger animation */
-.menu-toggle span :nth-child(2) {
-  transform-origin: 0 0;
-}
-.menu-toggle span :nth-child(4) {
-  transform-origin: 0 100%;
-}
 .menu-toggle input:checked ~ span:nth-child(2) {
-  transform: rotate(45deg);
+  transform: rotate(45deg) translate(-1px, -1px);
+  transform-origin: 0 0;
 }
 .menu-toggle input:checked ~ span:nth-child(4) {
   transform: rotate(-45deg) translate(-1px, 0);
+  transform-origin: 0 100%;
 }
 .menu-toggle input:checked ~ span:nth-child(3) {
   opacity: 0;
@@ -130,7 +126,7 @@ footer {
 /* resvonsive tablet */
 @media screen and (max-width: 768px) {
   header ul {
-    width: 200px;
+    width: 300px;
   }
 }
 @media screen and (max-width: 576px) {
